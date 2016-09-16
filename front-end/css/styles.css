@@ -1,0 +1,64 @@
+/* line 3, ../compass/sass/views/_login.sass */
+.login-title {
+  margin-bottom: 30px;
+}
+
+/* line 2, ../compass/sass/views/_options.sass */
+.individ-plan {
+  margin-left: -5px;
+  margin-right: 5px;
+  text-align: center;
+}
+/* line 8, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper .feature-shoe:hover {
+  height: 650px;
+  width: 33%;
+}
+/* line 11, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper .ease {
+  transition: all 0.8s ease-out;
+}
+/* line 14, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper img {
+  width: 21%;
+  height: 400px;
+}
+
+/* line 6, ../compass/sass/views/_main.sass */
+.section-1 {
+  color: #eee;
+  height: 500px;
+  background-image: url("images/nike-background.jpg");
+  background-position: center -250px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+/* line 15, ../compass/sass/views/_main.sass */
+.title {
+  text-align: center;
+}
+
+/* line 24, ../compass/sass/styles.sass */
+body .navbar {
+  background-color: #ffc789;
+}
+/* line 26, ../compass/sass/styles.sass */
+body .navbar .navbar-brand {
+  width: 100px;
+  height: 50px;
+}
+/* line 29, ../compass/sass/styles.sass */
+body .navbar .navbar-brand img {
+  width: 70%;
+  height: 30px;
+}
+/* line 35, ../compass/sass/styles.sass */
+body .text-center {
+  margin-top: 100px;
+}
+
+/* line 39, ../compass/sass/styles.sass */
+footer a {
+  padding: 10px;
+}

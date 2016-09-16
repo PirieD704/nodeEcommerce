@@ -1,0 +1,5 @@
+back-end/node_modules/*
+front-end/sass-cache/*
+front-end/node_modules/*
+front-end/server.js
+back-end/config.js
