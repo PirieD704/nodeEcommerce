@@ -1,7 +1,7 @@
 var ecommerceApp = angular.module("ecommerceApp", ['ngRoute', 'ngCookies']);
 ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $http, $timeout, $location, $cookies) {
 
-	var apiPath = "http://localhost:3000";
+	var apiPath = "http://davidapirie.com:3000/";
 
 	$scope.register = () => {
 		// if($scope.password != $scope.password2){
