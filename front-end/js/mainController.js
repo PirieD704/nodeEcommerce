@@ -18,6 +18,7 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 				$cookies.put('token', response.data.token) //Will be used for validation
 				$cookies.put('username', $scope.username) //Will be used strictly for info purposes
 				$location.path('/options');
+				$('#register').modal('hide')
 			}else{
 				console.log(response.data.message)
 			}
@@ -54,6 +55,7 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 				$cookies.put('token', response.data.token)
 				$cookies.put('username', $scope.username)
 				$location.path('/options');
+				$('#login').modal('hide')
 			}
 		}, function errorCallback(response){
 			console.log(response.data);
@@ -119,3 +121,4 @@ ecommerceApp.config(($routeProvider) => {
 		redirectTo: '/'
 	})
 })
+

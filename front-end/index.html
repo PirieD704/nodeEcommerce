@@ -38,22 +38,120 @@
 			</div>
 			<div id="navbar-collapse-1" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a ng-href="#/register">Sign Up</a></li>
-					<li><a ng-href="#/login">Log In</a></li>
+					<li><a data-toggle="modal" data-target="#register">Sign Up</a></li>
+					<li><a data-toggle="modal" data-target="#login">Log In</a></li>
 					<li><a ng-href="#/logout">Log Out</a></li>
 				</ul>
 			</div>
 		</div>
 
 	</nav>
-		<div class="lower-nav nav nav-tabs sub-nav"
-			<ul >
-				<li role="presentation" class="active"><a ng-href="#/">Home</a></li>
-				<li role="presentation"><a ng-href="#/options">Shop</a></li>
-				<li role="presentation"><a ng-href="#/delivery">Delivery</a></li>
-				<li role="presentation"><a ng-href="#/payment">Payment</a></li>
-			</ul>
-		</div>
+	<div class="lower-nav nav nav-tabs sub-nav"
+		<ul >
+			<li role="presentation" class="active"><a ng-href="#/">Home</a></li>
+			<li role="presentation"><a ng-href="#/options">Shop</a></li>
+			<li role="presentation"><a ng-href="#/delivery">Delivery</a></li>
+			<li role="presentation"><a ng-href="#/payment">Payment</a></li>
+		</ul>
+	</div>
+
+	<!-- modal for register -->
+	<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">REGISTER</h4>
+	      </div>
+	      <div class="modal-body">
+			<div class="register-container">
+				<div class="col-sm-12">
+					<form ng-submit="register()" id="registration-form">
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-user"></span></span>
+									<input type="text" ng-model="username" placeholder="Enter your username" minlength="4" maxlength="50" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" ng-model="password" placeholder="Enter your password" minlength="4" maxlength="50" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" ng-model="password2" placeholder="Please comfirm your password" minlength="4" maxlength="50" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-inbox"></span></span>
+									<input type="email" ng-model="email" placeholder="Enter your email" minlength="4" maxlength="50" class="form-control">
+								</div>
+							</div>
+						</div>t
+						<div class="button-holder col-md-offset-1 col-md-1">
+							<button type="submit" class="btn btn-success">Success</button>
+						</div>
+					</form>
+				</div>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal for login -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">LOG IN</h4>
+	      </div>
+	      <div class="modal-body">
+			<div class="login-container">
+				<form ng-submit="login()" id="login-form">
+					<div class="form-group col-md-12">
+						<div class="col-xs-10 col-xs-offset-1">			
+							<div class="input-group">
+								<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-user"></span></span>
+								<input type="text" ng-model="username" placeholder="Enter your username" minlength="4" maxlength="50" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<div class="col-xs-10 col-xs-offset-1">	
+							<div class="input-group">
+								<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-lock"></span></span>
+								<input type="password" ng-model="password" placeholder="Enter your password" minlength="4" maxlength="50" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="button-holder col-md-offset-4 col-md-1">
+						<button type="submit" class="btn btn-success">Success</button>
+					</div>
+				</form>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 	<div id="views" ng-view></div>
 

@@ -62,12 +62,20 @@ body .nav-tabs li {
   float: none;
   display: inline-block;
 }
+/* line 40, ../compass/sass/styles.sass */
+body .login-container {
+  width: 100%;
+}
+/* line 43, ../compass/sass/styles.sass */
+body .register-container {
+  width: 100%;
+}
 
-/* line 47, ../compass/sass/styles.sass */
+/* line 51, ../compass/sass/styles.sass */
 footer .text-center {
   margin-top: 100px;
 }
-/* line 49, ../compass/sass/styles.sass */
+/* line 53, ../compass/sass/styles.sass */
 footer a {
   padding: 10px;
 }
