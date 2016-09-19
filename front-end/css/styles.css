@@ -27,7 +27,7 @@
 /* line 6, ../compass/sass/views/_main.sass */
 .section-1 {
   color: #eee;
-  height: 500px;
+  height: 700px;
   background-image: url("images/nike-background.jpg");
   background-position: center -250px;
   background-size: 100% auto;
@@ -53,12 +53,21 @@ body .navbar .navbar-brand img {
   width: 70%;
   height: 30px;
 }
-/* line 35, ../compass/sass/styles.sass */
-body .text-center {
-  margin-top: 100px;
+/* line 32, ../compass/sass/styles.sass */
+body .lower-nav {
+  text-align: center;
+}
+/* line 36, ../compass/sass/styles.sass */
+body .nav-tabs li {
+  float: none;
+  display: inline-block;
 }
 
-/* line 39, ../compass/sass/styles.sass */
+/* line 47, ../compass/sass/styles.sass */
+footer .text-center {
+  margin-top: 100px;
+}
+/* line 49, ../compass/sass/styles.sass */
 footer a {
   padding: 10px;
 }
