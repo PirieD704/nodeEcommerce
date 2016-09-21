@@ -1,7 +1,30 @@
 var ecommerceApp = angular.module("ecommerceApp", ['ngRoute', 'ngCookies']);
 ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $http, $timeout, $location, $cookies) {
 
-	var apiPath = "http://davidapirie.com:3000/";
+
+	$(window).resize(function(){
+		var W = $(window).width()
+		if(W >= 1000){
+			$('.section-1').css({"background-position": "center -250px"})
+		}else{
+			$('.section-1').css({"background-position": "none"})
+		}		
+	})
+
+
+	var apiPath = "http://localhost:3000";
+
+	checkToken();
+	$scope.$watch(function () {
+	    return location.hash
+	}, function (value) {
+		console.log($scope.userdata)
+		if($scope.userdata.document.username != undefined){
+			$('#welcome-text').text("Hi " + $scope.userdata.document.username)
+	    	console.log($scope.userdata.document.username);
+		}
+	})
+
 
 	$scope.register = () => {
 		// if($scope.password != $scope.password2){
@@ -29,22 +52,26 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 
 	};
 
-	// $http.get(apiPath + '/getUserData?token=' + $cookies.get('token'))
-	// .then(function successCallback(response){
-	// 	response.data.xxxxx = whatever res.json was in express.
-	// 	if(response.data.failure == 'badToken'){
-	// 		$location.path = '/login' //Goodbye
-	// 	}else if(response.data.failure == 'noToken'){
-	// 		$location.path = '/login' //No token. Goodbye
-	// 	}else{
-	// 		//the token is good. Response.data will have their stuff in it.
-	// 		$scope.username = response.data.username;
-	// 		$scope.grindType = response.data.grindType;
-	// 	}
-	// }, function errorCallback(response){
-	// 	// console.log(response)
-	// });
-
+	function checkToken(){
+		if(($cookies.get('token') != undefined)){
+			$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'),{})
+			.then(function successCallback(response){
+				console.log('this ran')
+				// response.data.xxxxx = whatever res.json was in express.
+				if(response.data.failure == 'badToken'){
+					$location.path = '/login' //Goodbye
+				}else if(response.data.failure == 'noToken'){
+					$location.path = '/login' //No token. Goodbye
+				}else{
+					//the token is good. Response.data will have their stuff in it.
+					$scope.userdata = response.data
+					console.log("got something")
+				}
+			}, function errorCallback(response){
+				// console.log(response)
+			});
+		}
+	}
 	$scope.login = () => {
 		$http.post(apiPath + '/login', {
 			username: $scope.username,
@@ -53,6 +80,7 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			console.log(response.data);
 			if(response.data.success == "userFound"){
 				$cookies.put('token', response.data.token)
+				console.log($cookies.get('token'))
 				$cookies.put('username', $scope.username)
 				$location.path('/options');
 				$('#login').modal('hide')
@@ -61,6 +89,7 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			console.log(response.data);
 		})
 	}
+		
 
 	$scope.payOrder = function(userOptions) {
 	    $scope.errorMessage = "";

@@ -84,7 +84,9 @@ router.post('/login', (req, res, next) => {
 				if(loginResult){
 					//The password is correct. Log them in.
 					res.json({
-						success: "userFound"
+						success: "userFound",
+						token: document.token,
+						username: document.username
 					});
 				}else{
 					//hashes did not match or the doc wasn't found. Goodbye
@@ -97,7 +99,8 @@ router.post('/login', (req, res, next) => {
 	)
 })
 
-router.get('getUserData', (req, res, next) => {
+//anytime angular (or anybody) makes a GET request to express at this path, this will run and provide the necessary userdata
+router.get('/getUserData', (req, res, next) => {
 	var userToken = req.query.token; // the XXX in ?token=XXXXX
 	if(userToken == undefined){
 		//No token was supplied
@@ -110,12 +113,7 @@ router.get('getUserData', (req, res, next) => {
 					//this token is not in the system
 					res.json({failure: 'badToken'}); //Angular will need to act on this information
 				}else{
-					res.json({
-						username: document.username,
-						grind: document.grind,
-						frequency: document.frequency,
-						token: document.token
-					});
+					res.json({document});
 				}
 			}
 		)

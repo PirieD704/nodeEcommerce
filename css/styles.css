@@ -3,40 +3,58 @@
   margin-bottom: 30px;
 }
 
-/* line 2, ../compass/sass/views/_options.sass */
-.individ-plan {
-  margin-left: -5px;
-  margin-right: 5px;
+/* line 7, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper {
   text-align: center;
 }
-/* line 8, ../compass/sass/views/_options.sass */
+/* line 9, ../compass/sass/views/_options.sass */
 .individ-plan .slider-wrapper .feature-shoe:hover {
-  height: 650px;
-  width: 33%;
+  height: 450px;
+  width: 39%;
 }
-/* line 11, ../compass/sass/views/_options.sass */
+/* line 12, ../compass/sass/views/_options.sass */
 .individ-plan .slider-wrapper .ease {
   transition: all 0.8s ease-out;
 }
-/* line 14, ../compass/sass/views/_options.sass */
+/* line 15, ../compass/sass/views/_options.sass */
 .individ-plan .slider-wrapper img {
   width: 21%;
-  height: 400px;
+  height: 250px;
 }
 
 /* line 6, ../compass/sass/views/_main.sass */
 .section-1 {
   color: #eee;
-  height: 700px;
   background-image: url("images/nike-background.jpg");
-  background-position: center -250px;
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
+  -webkit-background-size: cover;
+}
+/* line 14, ../compass/sass/views/_main.sass */
+.section-1 .text-descript {
+  font-size: 20px;
+  padding-bottom: 400px;
+}
+/* line 17, ../compass/sass/views/_main.sass */
+.section-1 .text-descript2 {
+  text-align: right;
+  font-size: 24px;
 }
 
-/* line 15, ../compass/sass/views/_main.sass */
+/* line 23, ../compass/sass/views/_main.sass */
 .title {
   text-align: center;
+}
+
+/* line 28, ../compass/sass/views/_main.sass */
+#triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-top: 50px solid #020202;
+  display: inherit;
+  margin: auto;
 }
 
 /* line 24, ../compass/sass/styles.sass */
@@ -71,11 +89,20 @@ body .register-container {
   width: 100%;
 }
 
-/* line 51, ../compass/sass/styles.sass */
+/* line 47, ../compass/sass/styles.sass */
+#welcome {
+  text-align: right;
+  vertical-align: center;
+  color: #1e5b8c;
+  float: right;
+  margin-top: 15px;
+}
+
+/* line 56, ../compass/sass/styles.sass */
 footer .text-center {
   margin-top: 100px;
 }
-/* line 53, ../compass/sass/styles.sass */
+/* line 58, ../compass/sass/styles.sass */
 footer a {
   padding: 10px;
 }
