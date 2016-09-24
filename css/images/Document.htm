@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:8000/#/options -->
+<html ng-app="ecommerceApp" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+
+
+	
+	<title>Document</title>
+
+	<link rel="stylesheet" href="./Document_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="./Document_files/styles.css">
+
+	<script src="./Document_files/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<script src="./Document_files/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script src="./Document_files/checkout.js"></script>
+	<script type="text/javascript" src="./Document_files/angular.min.js"></script>
+	<script src="./Document_files/routes.js"></script>
+	<script src="./Document_files/cookies.js"></script>
+	<script type="text/javascript" src="./Document_files/mainController.js"></script>
+
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body ng-controller="ecommerceController" style="" class="ng-scope" cz-shortcut-listen="true">
+	
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" class="navbar-toggle collapsed">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://localhost:8000/#">
+					<img alt="Brand" src="./Document_files/brand.png">
+				</a>
+				<div id="welcome"><span id="welcome-text"></span></div>
+			</div>
+				
+			<div id="navbar-collapse-1" class="collapse navbar-collapse">
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li><a data-toggle="modal" data-target="#register">Sign Up</a></li>
+					<li><a data-toggle="modal" data-target="#login">Log In</a></li>
+					<li><a ng-href="#/logout" href="http://localhost:8000/#/logout">Log Out</a></li>
+				</ul>
+			</div>
+		</div>
+
+	</nav>
+	<div class="lower-nav nav nav-tabs sub-nav" <ul="">
+			<li role="presentation" class="active"><a ng-href="#/" href="http://localhost:8000/#/">Home</a></li>
+			<li role="presentation"><a ng-href="#/options" href="http://localhost:8000/#/options">Shop</a></li>
+			<li role="presentation"><a ng-href="#/delivery" href="http://localhost:8000/#/delivery">Delivery</a></li>
+			<li role="presentation"><a ng-href="#/payment" href="http://localhost:8000/#/payment">Payment</a></li>
+		
+	</div>
+
+	<!-- modal for register -->
+	<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        <h4 class="modal-title" id="myModalLabel">REGISTER</h4>
+	      </div>
+	      <div class="modal-body">
+			<div class="register-container">
+				<div class="col-sm-12">
+					<form ng-submit="register()" id="registration-form" class="ng-pristine ng-valid ng-valid-minlength ng-valid-maxlength ng-valid-email">
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-user"></span></span>
+									<input type="text" ng-model="username" placeholder="Enter your username" minlength="4" maxlength="50" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-minlength ng-valid-maxlength">
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" ng-model="password" placeholder="Enter your password" minlength="4" maxlength="50" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-minlength ng-valid-maxlength">
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-lock"></span></span>
+									<input type="password" ng-model="password2" placeholder="Please comfirm your password" minlength="4" maxlength="50" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-minlength ng-valid-maxlength">
+								</div>
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+							<div class="col-md-10 col-md-offset-1">			
+								<div class="input-group">
+									<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-inbox"></span></span>
+									<input type="email" ng-model="email" placeholder="Enter your email" minlength="4" maxlength="50" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-email ng-valid-minlength ng-valid-maxlength">
+								</div>
+							</div>
+						</div>t
+						<div class="button-holder col-md-offset-1 col-md-1">
+							<button type="submit" class="btn btn-success">Success</button>
+						</div>
+					</form>
+				</div>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal for login -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        <h4 class="modal-title" id="myModalLabel">LOG IN</h4>
+	      </div>
+	      <div class="modal-body">
+			<div class="login-container">
+				<form ng-submit="login()" id="login-form" class="ng-pristine ng-valid ng-valid-minlength ng-valid-maxlength">
+					<div class="form-group col-md-12">
+						<div class="col-xs-10 col-xs-offset-1">			
+							<div class="input-group">
+								<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-user"></span></span>
+								<input type="text" ng-model="username" placeholder="Enter your username" minlength="4" maxlength="50" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-minlength ng-valid-maxlength" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<div class="col-xs-10 col-xs-offset-1">	
+							<div class="input-group">
+								<span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-lock"></span></span>
+								<input type="password" ng-model="password" placeholder="Enter your password" minlength="4" maxlength="50" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-minlength ng-valid-maxlength" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+							</div>
+						</div>
+					</div>
+					<div class="button-holder col-md-offset-4 col-md-1">
+						<button type="submit" class="btn btn-success">Success</button>
+					</div>
+				</form>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- ngView: --><div id="views" ng-view="" class="ng-scope"><!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="./Document_files/jquery.mousewheel-3.0.6.pack.js" class="ng-scope"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="./Document_files/jquery.fancybox.css" type="text/css" media="screen" class="ng-scope">
+<script type="text/javascript" src="./Document_files/jquery.fancybox.pack.js" class="ng-scope"></script>
+
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<link rel="stylesheet" href="./Document_files/jquery.fancybox-buttons.css" type="text/css" media="screen" class="ng-scope">
+<script type="text/javascript" src="./Document_files/jquery.fancybox-buttons.js" class="ng-scope"></script>
+<script type="text/javascript" src="./Document_files/jquery.fancybox-media.js" class="ng-scope"></script>
+
+<link rel="stylesheet" href="./Document_files/jquery.fancybox-thumbs.css" type="text/css" media="screen" class="ng-scope">
+<script type="text/javascript" src="./Document_files/jquery.fancybox-thumbs.js" class="ng-scope"></script>
+<script type="text/javascript" class="ng-scope">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+		console.log($(".fancybox"))
+	});
+</script>
+
+<div class="options-wrapper ng-scope">
+	<div class="col-md-12 options-title">
+		<h1>This Week's Feature</h1>
+		<h4>Free shipping</h4>
+	</div>
+	<div class="container">
+		<div class="col-md-12 individ-plan">
+			<div class="slider-wrapper col-xs-12">
+				<a class="fancybox" ng-mouseover="myHoverEdit1()" rel="group" href="./Document_files/airjordan.jpg"><img class="ease feature-shoe" src="./Document_files/airjordan.jpg" alt=""></a>
+				<a class="fancybox" ng-mouseover="myHoverEdit2()" rel="group" href="./Document_files/nikeLunarEpicFlyknit.jpg"><img class="ease feature-shoe" src="./Document_files/nikeLunarEpicFlyknit.jpg" alt=""></a>
+				<a class="fancybox" ng-mouseover="myHoverEdit3()" rel="group" href="http://localhost:8000/css/images/acid-denim.jpeg"><img class="ease feature-shoe" src="./Document_files/vansOldSkoolThreeway.jpg" alt=""></a>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-6 square-text-list">
+					Price:
+				</div>
+				<div class="black-shoe col-md-6 ng-hide" ng-show="hoverEdit1">
+					$350
+				</div>
+				<div class="orange-shoe col-md-6 ng-hide" ng-show="hoverEdit2">
+					$250
+				</div>
+				<div class="blue-shoe col-md-6 ng-hide" ng-show="hoverEdit3">
+					$400
+				</div>
+		</div>
+				<br><br>
+		<div class="col-md-12">
+			<div class="col-md-6 square-text-list">
+				Description:
+			</div>
+			<div class="black-shoe col-md-6 ng-hide" ng-show="hoverEdit1">
+				Black shoe Black shoe Black shoe Black shoe Black shoe Black shoe Black shoe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, incidunt voluptates repellendus labore nostrum quas. Optio, rerum. Ullam voluptas asperiores excepturi, nulla minima earum natus dolore eligendi, ducimus et, similique.
+			</div>
+			<div class="orange-shoe col-md-6 ng-hide" ng-show="hoverEdit2">
+				Orange shoe Orange shoe Orange shoe Orange shoe Orange shoe Orange shoe Orange shoe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, incidunt voluptates repellendus labore nostrum quas. Optio, rerum. Ullam voluptas asperiores excepturi, nulla minima earum natus dolore eligendi, ducimus et, similique.
+			</div>
+			<div class="blue-shoe col-md-6 ng-hide" ng-show="hoverEdit3">
+				Vans The Acid Denim Old Skool, the Vans classic skate shoe and first to bare the iconic sidestripe, is a low top lace-up featuring denim uppers with leather accents, re-enforced toecaps to withstand repeated wear, signature rubber waffle outsoles, and padded collars for support and flexibility.
+			</div>
+		</div>
+			<br><br>
+		<div class="col-md-12">
+			<div class="col-md-6 square-text-list">
+				Features:
+			</div>
+			<div class="col-md-6">
+				<ul>
+					<li>Bad ass</li>
+				</ul>
+			</div>
+		</div>
+			<br><br>
+		<div class="col-md-12">
+			<div class="col-md-6 square-text-list">
+				Size:
+			</div>
+			<div class="col-md-6">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Dropdown
+				    <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="http://localhost:8000/#">8</a></li>
+					    <li><a href="http://localhost:8000/#">8.5</a></li>
+					    <li><a href="http://localhost:8000/#">9</a></li>
+					    <li><a href="http://localhost:8000/#">9.5</a></li>
+					    <li><a href="http://localhost:8000/#">10</a></li>
+					    <li><a href="http://localhost:8000/#">10.5</a></li>
+					    <li><a href="http://localhost:8000/#">11</a></li>
+					    <li role="separator" class="divider"></li>
+					    <li><a href="http://localhost:8000/#">Separated link</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+				<div class="col-md-12">
+					<button class="btn btn-default btn-success" type="button">SUBMIT</button>
+				</div>
+				<div class="col-md-12">
+					<p>
+						Shipping is always free
+						<br><br>
+						Skip any week. Cancel any time
+					</p>
+				</div>
+			</div>
+		</div>
+	
+</div>
+
+	<footer class="text-center">
+	<div class="col-xs-12">
+		<a href="http://localhost:8000/#/">Home</a>
+		<a href="http://localhost:8000/#/options">Options</a>
+	</div>
+	<div class="col-xs-12">
+		<p>DC Roasters | All Rights Reserved</p>
+	</div>
+	</footer>
+
+
+<script aria-hidden="true" type="application/x-lastpass" id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script></body></html>

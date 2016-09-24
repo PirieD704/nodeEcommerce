@@ -1,0 +1,6 @@
+needed to find out why check username was not working
+* I was missing a forward slash at '/getUserData' at localhost:3000 in index.js
+* I was returning a success: userFound from my GET request when I needed to pass back relevant usable data
+* for getting the welcome-text to format. I needed to use the proper target syntax of $scope.userData.document.username
+* also needed to stop overriding the html in the check-token function
+* background-image was better left to just "background-position: center -250px"

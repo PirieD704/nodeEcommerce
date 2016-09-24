@@ -1,0 +1,130 @@
+/* line 3, ../compass/sass/views/_login.sass */
+.login-title {
+  margin-bottom: 30px;
+}
+
+/* line 7, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper {
+  text-align: center;
+}
+/* line 9, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper .feature-shoe:hover {
+  height: 450px;
+  width: 39%;
+}
+/* line 12, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper .ease {
+  transition: all 0.8s ease-out;
+}
+/* line 15, ../compass/sass/views/_options.sass */
+.individ-plan .slider-wrapper img {
+  width: 23%;
+  height: 250px;
+}
+
+/* line 6, ../compass/sass/views/_main.sass */
+.section-1 {
+  color: #eee;
+  background-image: url("images/nike-background.jpg");
+  background-position: center -250px;
+  background-repeat: no-repeat;
+  -webkit-background-position: center;
+}
+/* line 14, ../compass/sass/views/_main.sass */
+.section-1 .text-descript {
+  font-size: 20px;
+  padding-bottom: 600px;
+}
+/* line 17, ../compass/sass/views/_main.sass */
+.section-1 .text-descript2 {
+  text-align: right;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+/* line 24, ../compass/sass/views/_main.sass */
+.title {
+  text-align: center;
+}
+
+/* line 27, ../compass/sass/views/_main.sass */
+.section-2 {
+  color: #020202;
+  height: 500px;
+}
+
+/* line 37, ../compass/sass/views/_main.sass */
+#triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-top: 50px solid #020202;
+  display: inherit;
+  margin: auto;
+}
+
+/* line 8, ../compass/sass/views/_delivery.sass */
+.delivery-container form div {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* line 11, ../compass/sass/views/_delivery.sass */
+.delivery-container form div label {
+  margin-top: 13px;
+  text-align: right;
+}
+/* line 15, ../compass/sass/views/_delivery.sass */
+.delivery-container form button {
+  margin-left: 75%;
+}
+
+/* line 25, ../compass/sass/styles.sass */
+body .navbar {
+  background-color: #ffc789;
+}
+/* line 27, ../compass/sass/styles.sass */
+body .navbar .navbar-brand {
+  width: 100px;
+  height: 50px;
+}
+/* line 30, ../compass/sass/styles.sass */
+body .navbar .navbar-brand img {
+  width: 70%;
+  height: 30px;
+}
+/* line 33, ../compass/sass/styles.sass */
+body .lower-nav {
+  text-align: center;
+}
+/* line 37, ../compass/sass/styles.sass */
+body .nav-tabs li {
+  float: none;
+  display: inline-block;
+}
+/* line 41, ../compass/sass/styles.sass */
+body .login-container {
+  width: 100%;
+}
+/* line 44, ../compass/sass/styles.sass */
+body .register-container {
+  width: 100%;
+}
+
+/* line 48, ../compass/sass/styles.sass */
+#welcome {
+  text-align: right;
+  vertical-align: center;
+  color: #1e5b8c;
+  float: right;
+  margin-top: 15px;
+}
+
+/* line 57, ../compass/sass/styles.sass */
+footer .text-center {
+  margin-top: 100px;
+}
+/* line 59, ../compass/sass/styles.sass */
+footer a {
+  padding: 10px;
+}

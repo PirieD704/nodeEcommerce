@@ -65,6 +65,7 @@ router.post('/stripe', (req, res, next) => {
 	}, (err) => {
 		res.json({
 			message: "failedPayment"
+			error: err
 		})
 	});
 })

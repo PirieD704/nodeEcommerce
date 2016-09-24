@@ -27,44 +27,95 @@
 	<div class="container">
 		<div class="col-md-12 individ-plan">
 			<div class="slider-wrapper col-xs-12">
-				<a class="fancybox" rel="group" href="css/images/airjordan.jpg"><img class="ease feature-shoe" src="css/images/airjordan.jpg" alt="" /></a>
-				<a class="fancybox" rel="group" href="css/images/nikeLunarEpicFlyknit.jpg"><img class="ease feature-shoe" src="css/images/nikeLunarEpicFlyknit.jpg" alt="" /></a>
-				<a class="fancybox" rel="group" href="css/images/vansOldSkoolThreeway.jpg"><img class="ease feature-shoe" src="css/images/vansOldSkoolThreeway.jpg" alt="" /></a>
+				<a class="fancybox" ng-mouseover="myHoverEdit1()" rel="group" href="css/images/adidas-mcnasty.png">
+					<img class="ease feature-shoe-left" src="css/images/adidas-mcnasty.png" alt />
+				</a>
+				<a class="fancybox" ng-mouseover="myHoverEdit2()" rel="group" href="css/images/nike-flyknit.jpg">
+					<img class="ease center-shoe" src="css/images/nike-flyknit.jpg" alt="" />
+				</a>
+				<a class="fancybox" ng-mouseover="myHoverEdit3()" rel="group" href="css/images/acid-denim.jpeg">
+					<img class="ease feature-shoe" src="css/images/acid-denim.jpeg" alt="" />
+				</a>
 			</div>
-			<div class="col-md-12">
-				<div class="col-md-6 square-text-list">
+			<div class="col-xs-12 shoe-name-wrapper">
+				<div class="yellow-shoe" ng-show="hoverEdit1">
+					MARK MCNAIRY KZK X ADIDAS HOOK SHOT 84-LAB
+				</div>
+				<div class="orange-shoe" ng-show="hoverEdit2">
+					2015 NEWEST NIKE AIR MAX LUNAR90 FLYKNIT
+				</div>
+				<div class="blue-shoe" ng-show="hoverEdit3">
+					VANS ACID DENIM OLD SKOOL
+				</div>
+			</div>
+			<div class="col-md-12 price-wrapper">
+				<div class="col-md-3 square-text-list">
 					Price:
 				</div>
-				<div class="col-md-6">
-					$350
+				<div class="yellow-shoe col-md-9" ng-show="hoverEdit1">
+					$110
+				</div>
+				<div class="orange-shoe col-md-9" ng-show="hoverEdit2">
+					$94
+				</div>
+				<div class="blue-shoe col-md-9" ng-show="hoverEdit3">
+					$65
 				</div>
 		</div>
 				<br><br>
-		<div class="col-md-12">
-			<div class="col-md-6 square-text-list">
+		<div class="col-md-12 descript-wrapper">
+			<div class="col-md-3 square-text-list">
 				Description:
 			</div>
-			<div class="col-md-6">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, incidunt voluptates repellendus labore nostrum quas. Optio, rerum. Ullam voluptas asperiores excepturi, nulla minima earum natus dolore eligendi, ducimus et, similique.
+			<div class="yellow-shoe col-md-9" ng-show="hoverEdit1">
+				Fragment’s Kazuki Kuraishi brings in Mark McNairy for a special appearance on his AW13 collaboration with Adidas Originals. One of the highlights in the collection is this yellow Hook Shot silhouette featuring leather uppers mixed with suede detailing set atop a contrasting sole with Mc Nasty’s signature TCMFB (Taking Care of Mothu F***ing Business) insignia. These are available now at exclusive stockists for around £95 GBP.
+			</div>
+			<div class="orange-shoe col-md-9" ng-show="hoverEdit2">
+				Talk about two birds with one stone! These shoes are a perfect blend of comfort and fashion. the Air Max Lunar90's in their devilishy handsome Chukka red with black and white to accent scream trendy with a retro vibe to them all while incorporating nike's newest technology of the flyknit material so your feet don't get cramped.
+			</div>
+			<div class="blue-shoe col-md-9" ng-show="hoverEdit3">
+				Vans The Acid Denim Old Skool, the Vans classic skate shoe and first to bare the iconic sidestripe, is a low top lace-up featuring denim uppers with leather accents, re-enforced toecaps to withstand repeated wear, signature rubber waffle outsoles, and padded collars for support and flexibility.
 			</div>
 		</div>
 			<br><br>
-		<div class="col-md-12">
-			<div class="col-md-6 square-text-list">
+		<div class="col-md-12 features-wrapper">
+			<div class="col-md-3 square-text-list">
 				Features:
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-9" ng-show="hoverEdit1">
 				<ul>
-					<li>Bad ass</li>
+					<li>guaranteed to whoop a$$</li>
+					<li>leather topcover</li>
+					<li>blue suede accent</li>
+					<li>all-yellow laces</li>
+					<li>custom McNasty insignia</li>
+				</ul>
+			</div>
+			<div class="col-md-9" ng-show="hoverEdit2">
+				<ul>
+					<li>Chukka red</li>
+					<li>Flyknit material</li>
+					<li>lunarlon cushioning</li>
+					<li>flex undersole</li>
+					<li>custom tread</li>
+					<li>tough</li>
+				</ul>
+			</div>
+			<div class="col-md-9" ng-show="hoverEdit3">
+				<ul>
+					<li>smoother than a babie's bottom</li>
+					<li>acid-denim finish</li>
+					<li>custom inlay on the shoe-bed</li>
+					<li>can't be turned away from any club in these... ever</li>
 				</ul>
 			</div>
 		</div>
 			<br><br>
-		<div class="col-md-12">
-			<div class="col-md-6 square-text-list">
+		<div class="col-md-12 size-wrapper">
+			<div class="col-md-3 square-text-list">
 				Size:
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<div class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					Dropdown
