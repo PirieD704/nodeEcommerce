@@ -3,6 +3,10 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 
 	var apiPath = "http://localhost:3000";
 
+	var hoverEdit1
+	var hoverEdit2
+	var hoverEdit3
+
 	checkToken();
 	$scope.$watch(function () {
 	    return location.hash
@@ -110,10 +114,6 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 	        amount: $scope.total * 100
 	    });
 	};
-
-	// var hoverEdit1
-	// var hoverEdit2
-	// var hoverEdit3
 
 	$scope.myHoverEdit1 = function(){
 		$scope.hoverEdit1 = true;
