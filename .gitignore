@@ -1,5 +1,5 @@
 back-end/node_modules/*
-front-end/sass-cache/*
-front-end/node_modules/*
-front-end/server.js
+sass-cache/*
+node_modules/*
+server.js
 back-end/config.js
