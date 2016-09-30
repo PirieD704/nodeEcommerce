@@ -111,33 +111,22 @@
 				</div>
 			</div>
 				<br><br>
-			<form>
+			<form ng-submit="options()">
 				<div class="col-md-12 size-wrapper">
 					<div class="col-md-3 square-text-list">
 						Size:
 					</div>
 					<div class="col-md-9">
 						<div class="dropdown">
-							<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							Dropdown
-						    <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							    <li><a href="#">8</a></li>
-							    <li><a href="#">8.5</a></li>
-							    <li><a href="#">9</a></li>
-							    <li>9.5</li>
-							    <li><a href="#">10</a></li>
-							    <li><a href="#">10.5</a></li>
-							    <li><a href="#">11</a></li>
-							    <li role="separator" class="divider"></li>
-							    <li><a href="#">Separated link</a></li>
-							</ul>
+							<select ng-model="user_shoe_size" ng-options="size.size for size in sizes" class="btn btn-default dropdown-toggle">
+								<option value="?" selected="selected"></option>
+								<option label="{size}">{{size}}</option>
+							</select>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-12">
-					<button class="btn btn-default btn-success" type="button">SUBMIT</button>
+					<button class="btn btn-default btn-success" type="submit">SUBMIT</button>
 				</div>
 			</form>
 		</div>

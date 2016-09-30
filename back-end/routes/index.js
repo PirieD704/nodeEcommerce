@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var mongoUrl = "mongodb://localhost:27017/ecommerce";
 var User = require('../models/account')
+// mongoose.Promise = global.Promise; # pulled as a possible solution to Mongoose: mpromise in terminal (node)
 mongoose.connect(mongoUrl);
 // Include bcrypt to store hashed pass
 var bcrypt =  require('bcrypt-nodejs')
@@ -51,6 +52,72 @@ router.post('/addAccount', (req, res, next) => {
 
 });
 
+router.post('/options', (req, res, next) => {
+	// console.log(req.body)
+	var user_choice = {
+		shoeSelection: req.body.shoeSelection,
+		shoeSize: req.body.shoeSize.size,
+		price: req.body.price
+	}
+	User.findOne(
+		{token: req.body.token},
+		function(error, document){
+			if(document == null){
+				//No match
+				res.json({message: "noUser"});
+			}else{
+				document.order.push(user_choice)
+				// console.log(document)
+			    document.save((error, documentAdded) => {
+					if(error){
+						res.json({
+							message: error    		
+						})
+					}else{
+						res.json({
+				    		message: "submitted"
+						});
+					}
+				});
+			}
+		}
+	)
+})
+
+router.post('/delivery', (req, res, next) => {
+	console.log(req.body)
+	var user_shipping = {
+		fullName: req.body.fullName,
+		address1: req.body.address1,
+		cityShipping: req.body.cityShipping,
+		stateShipping: req.body.stateShipping,
+		zip: req.body.zip
+	}
+	User.findOne(
+		{token: req.body.token},
+		function(error, document){
+			if(document == null){
+				res.json({message: "noUser"});
+			}else{
+				document.shipping.push(user_shipping)
+				console.log(document)
+				document.save((error, documentAdded) => {
+					if(error){
+						res.json({
+							message: error    		
+						})
+					}else{
+						res.json({
+				    		message: "submitted"
+						});
+					}
+				});
+			}
+		}
+
+	)
+})
+
 router.post('/stripe', (req, res, next) => {
 
 	stripe.charges.create({
@@ -64,7 +131,7 @@ router.post('/stripe', (req, res, next) => {
 		})
 	}, (err) => {
 		res.json({
-			message: "failedPayment"
+			message: "failedPayment",
 			error: err
 		})
 	});

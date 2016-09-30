@@ -7,17 +7,18 @@ var userSchema = new Schema({
 	email: {type: String, required: true},
 	token: String,
 	tokenExpDate: Date,
-	shoeSelection1: String,
-	shoeSize1: String,
-	shoeSelection2: String,
-	shoeSize2: String,
-	shoeSelection3: String,
-	shoeSize3: String,
-	fullName: String,
-	address1: String,
-	address2: String,
-	city: String,
-	state: String
+	order: [{
+		"shoeSelection": String,
+		"shoeSize": String,
+		"price": String
+	}],
+	shipping: [{
+		"fullName": String,
+		"address1": String,
+		"cityShipping": String,
+		"stateShipping": String,
+		"zip": String
+	}]
 })
 
 module.exports = mongoose.model('User', userSchema);

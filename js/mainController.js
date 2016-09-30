@@ -79,7 +79,71 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			console.log(response.data);
 		})
 	}
-		
+
+	// This submits the user selection of their shoes
+	$scope.options = () => {
+		console.log($cookies.get('token'))
+		console.log("this did work")
+		if($scope.hoverEdit1){
+			console.log("hover1")
+			$http.post(apiPath + '/options', {
+				token: $cookies.get('token'),
+				shoeSelection: 'MARK MCNAIRY KZK X ADIDAS HOOK SHOT 84-LAB',
+				shoeSize: $scope.user_shoe_size,
+				price: '110'
+			}).then(function successCallback(response){
+				console.log(response.data);
+				if(response.data.message == "submitted"){
+					$location.path('/delivery');
+				}
+			})
+		}else if($scope.hoverEdit2){
+			console.log("hover2")
+			$http.post(apiPath + '/options', {
+				token: $cookies.get('token'),
+				shoeSelection: '2015 NEWEST NIKE AIR MAX LUNAR90 FLYKNIT',
+				shoeSize: $scope.user_shoe_size,
+				price: '94'
+			}).then(function successCallback(response){
+				console.log(response.data);
+				if(response.data.message == "submitted"){
+					$location.path('/delivery');
+				}
+			})
+		}else if($scope.hoverEdit3){
+			console.log("hover3")
+			$http.post(apiPath + '/options', {
+				token: $cookies.get('token'),
+				shoeSelection: 'VANS ACID DENIM OLD SKOOL',
+				shoeSize: $scope.user_shoe_size,
+				price: '65'
+			}).then(function successCallback(response){
+				console.log(response.data);
+				if(response.data.message == "submitted"){
+					$location.path('/delivery');
+				}
+			})
+		}
+	}
+
+	$scope.delivery = () => {
+		console.log("something happened")
+		console.log($scope.stateShipping)
+		console.log($scope.zip)
+		$http.post(apiPath + '/delivery', {
+			token: $cookies.get('token'),
+			fullName: $scope.fullName,
+			address1: $scope.address1,
+			cityShipping: $scope.cityShipping,
+			stateShipping: $scope.stateShipping,
+			zip: $scope.zip
+		}).then(function successCallback(response){
+			console.log(response.data);
+			if(response.data.message == "submitted"){
+				$location.path('/payment')
+			}
+		})
+	}
 
 	$scope.payOrder = function(userOptions) {
 	    $scope.errorMessage = "";
@@ -130,6 +194,19 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 		$scope.hoverEdit2 = false;
 		$scope.hoverEdit3 = true;
 	}
+
+	$scope.sizes = [
+		{size: '7.5'},
+		{size: '8'},
+		{size: '8.5'},
+		{size: '9'},
+		{size: '9.5'},
+		{size: '10'},
+		{size: '10.5'},
+		{size: '11'},
+		{size: '11.5'},
+		{size: '12'}
+	]
 
 })
 
