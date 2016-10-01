@@ -1,17 +1,45 @@
 <div class="row text-center">
-	<div class="center-block" id="payment-button">
-<!-- 		<form action="/stripe" method="POST">
-			<script
-				src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				data-key="pk_test_uIlmc8NsFKhYPqMmNQHYpm7K"
-				data-amount="2000"
-				data-name="Time to Pay Up!"
-				data-description="2 widgets"
-				data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-				data-locale="auto">
-			</script>
-			<button  -->
-
+	<div class="container center-block" id="payment-button">
+		<div class="col-xs-12 review-wrapper">
+			<div class="col-xs-12 shopping-cart-wrapper">
+				<div>Selection Info:</div>
+				<div class="col-xs-12 shoe-pick">
+					<div class="col-xs-6 left-text the-shoe">Selection:</div>
+					<div class="col-xs-6 right-text the-shoe"></div>
+				</div>
+				<div class="col-xs-12 shoe-size-pick">
+					<div class="col-xs-6 left-text the-shoe">Size:</div>
+					<div class="col-xs-6 right-text the-shoe"></div>
+				</div>
+				<div class="col-xs-12 shoe-price-pick">
+					<div class="col-xs-6 left-text the-shoe">Price:</div>
+					<div class="col-xs-6 right-text the-shoe"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 shopping-cart-wrapper">
+				<div>Shipping Info:</div>
+				<div class="col-xs-12 shoe-pick">
+					<div class="col-xs-6 left-text the-shipping">Your Name:</div>
+					<div class="col-xs-6 right-text the-shipping"></div>
+				</div>
+				<div class="col-xs-12 shoe-pick">
+					<div class="col-xs-6 left-text the-shipping">Address:</div>
+					<div class="col-xs-6 right-text the-shipping"></div>
+				</div>
+				<div class="col-xs-12 shoe-pick">
+					<div class="col-xs-6 left-text the-shipping">City:</div>
+					<div class="col-xs-6 right-text the-shipping"></div>
+				</div>
+				<div class="col-xs-12 shoe-pick">
+					<div class="col-xs-6 left-text the-shipping">State/Province/Region:</div>
+					<div class="col-xs-6 right-text the-shipping"></div>
+				</div>
+				<div class="col-xs-12 shoe-pick">
+					<div class="col-xs-6 left-text the-shipping">Zip:</div>
+					<div class="col-xs-6 right-text the-shipping"></div>
+				</div>
+			</div>
+		</div>
 	<button class="btn btn-default" id="custom-button" ng-click="payOrder()">Pay With Card</button>
 	<button class="btn btn-default block-center" ng-click="cancel()">Cancel Order</button>
 	</div>
