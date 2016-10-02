@@ -160,43 +160,70 @@
   margin-left: 75%;
 }
 
-/* line 24, ../compass/sass/styles.sass */
+/* line 1, ../compass/sass/views/_payment.sass */
+.review-wrapper {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+}
+/* line 6, ../compass/sass/views/_payment.sass */
+.review-wrapper .shopping-cart-wrapper .left-text {
+  text-align: right;
+}
+/* line 8, ../compass/sass/views/_payment.sass */
+.review-wrapper .shopping-cart-wrapper .right-text {
+  text-align: left;
+}
+/* line 11, ../compass/sass/views/_payment.sass */
+.review-wrapper .address-wrapper {
+  margin-top: 20px;
+}
+/* line 13, ../compass/sass/views/_payment.sass */
+.review-wrapper .address-wrapper .left-text {
+  text-align: right;
+}
+/* line 15, ../compass/sass/views/_payment.sass */
+.review-wrapper .address-wrapper .right-text {
+  text-align: left;
+}
+
+/* line 25, ../compass/sass/styles.sass */
 body {
   font-family: "Nunito", Helvetica;
 }
-/* line 26, ../compass/sass/styles.sass */
+/* line 27, ../compass/sass/styles.sass */
 body .navbar {
   background-color: #ffc789;
 }
-/* line 28, ../compass/sass/styles.sass */
+/* line 29, ../compass/sass/styles.sass */
 body .navbar .navbar-brand {
   width: 100px;
   height: 50px;
 }
-/* line 31, ../compass/sass/styles.sass */
+/* line 32, ../compass/sass/styles.sass */
 body .navbar .navbar-brand img {
   width: 70%;
   height: 30px;
 }
-/* line 34, ../compass/sass/styles.sass */
+/* line 35, ../compass/sass/styles.sass */
 body .lower-nav {
   text-align: center;
 }
-/* line 38, ../compass/sass/styles.sass */
+/* line 39, ../compass/sass/styles.sass */
 body .nav-tabs li {
   float: none;
   display: inline-block;
 }
-/* line 42, ../compass/sass/styles.sass */
+/* line 43, ../compass/sass/styles.sass */
 body .login-container {
   width: 100%;
 }
-/* line 45, ../compass/sass/styles.sass */
+/* line 46, ../compass/sass/styles.sass */
 body .register-container {
   width: 100%;
 }
 
-/* line 49, ../compass/sass/styles.sass */
+/* line 50, ../compass/sass/styles.sass */
 #welcome {
   text-align: right;
   vertical-align: center;
@@ -205,11 +232,11 @@ body .register-container {
   margin-top: 15px;
 }
 
-/* line 58, ../compass/sass/styles.sass */
+/* line 59, ../compass/sass/styles.sass */
 footer .text-center {
   margin-top: 100px;
 }
-/* line 60, ../compass/sass/styles.sass */
+/* line 61, ../compass/sass/styles.sass */
 footer a {
   padding: 10px;
 }
