@@ -187,6 +187,12 @@
   text-align: left;
 }
 
+/* line 19, ../compass/sass/views/_payment.sass */
+.the-pay-buttons .btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* line 25, ../compass/sass/styles.sass */
 body {
   font-family: "Nunito", Helvetica;
