@@ -56,6 +56,11 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 				}else{
 					//the token is good. Response.data will have their stuff in it.
 					$scope.userdata = response.data
+					console.log($scope.userdata)
+					if($scope.userdata.document.username != undefined){
+						$('#welcome-text').text("Hi " + $scope.userdata.document.username)
+	    				console.log($scope.userdata.document.username);
+	    			}
 				}
 			}, function errorCallback(response){
 				// console.log(response)
@@ -156,7 +161,7 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 	            console.log(token.id);
 
 	            $http.post(apiUrl + '/stripe', {
-	                amount: $scope.total * 100,
+	                amount: userdata.document.order[0].price * 100,
 	                stripeToken: token.id,
 	                token: $cookies.get('token')
 	                    //This will pass amount, stripeToken, and token to /payment

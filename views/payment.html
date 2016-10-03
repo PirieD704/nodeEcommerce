@@ -5,38 +5,38 @@
 				<div>Selection Info:</div>
 				<div class="col-xs-12 shoe-pick">
 					<div class="col-xs-6 left-text the-shoe">Selection:</div>
-					<div class="col-xs-6 right-text the-shoe"></div>
+					<div class="col-xs-6 right-text the-shoe">{{userdata.document.order[0].shoeSelection}}</div>
 				</div>
 				<div class="col-xs-12 shoe-size-pick">
 					<div class="col-xs-6 left-text the-shoe">Size:</div>
-					<div class="col-xs-6 right-text the-shoe"></div>
+					<div class="col-xs-6 right-text the-shoe">{{userdata.document.order[0].shoeSize}}</div>
 				</div>
 				<div class="col-xs-12 shoe-price-pick">
 					<div class="col-xs-6 left-text the-shoe">Price:</div>
-					<div class="col-xs-6 right-text the-shoe"></div>
+					<div class="col-xs-6 right-text the-shoe">${{userdata.document.order[0].price}}</div>
 				</div>
 			</div>
 			<div class="col-xs-12 address-wrapper">
 				<div>Shipping Info:</div>
 				<div class="col-xs-12 shoe-pick">
 					<div class="col-xs-6 left-text the-shipping">Your Name:</div>
-					<div class="col-xs-6 right-text the-shipping"></div>
+					<div class="col-xs-6 right-text the-shipping">{{userdata.document.shipping[0].fullName}}</div>
 				</div>
 				<div class="col-xs-12 shoe-pick">
 					<div class="col-xs-6 left-text the-shipping">Address:</div>
-					<div class="col-xs-6 right-text the-shipping"></div>
+					<div class="col-xs-6 right-text the-shipping">{{userdata.document.shipping[0].address1}}</div>
 				</div>
 				<div class="col-xs-12 shoe-pick">
 					<div class="col-xs-6 left-text the-shipping">City:</div>
-					<div class="col-xs-6 right-text the-shipping"></div>
+					<div class="col-xs-6 right-text the-shipping">{{userdata.document.shipping[0].cityShipping}}</div>
 				</div>
 				<div class="col-xs-12 shoe-pick">
 					<div class="col-xs-6 left-text the-shipping">State/Province/Region:</div>
-					<div class="col-xs-6 right-text the-shipping"></div>
+					<div class="col-xs-6 right-text the-shipping">{{userdata.document.shipping[0].stateShipping}}</div>
 				</div>
 				<div class="col-xs-12 shoe-pick">
 					<div class="col-xs-6 left-text the-shipping">Zip:</div>
-					<div class="col-xs-6 right-text the-shipping"></div>
+					<div class="col-xs-6 right-text the-shipping">{{userdata.document.shipping[0].zip}}</div>
 				</div>
 			</div>
 		</div>
