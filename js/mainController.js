@@ -7,6 +7,9 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 	var hoverEdit2
 	var hoverEdit3
 
+	W = window.width
+	H = window.height
+
 	checkToken();
 	$scope.$watch(function () {
 	    return location.hash
@@ -16,6 +19,12 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 	 //    	console.log($scope.userdata.document.username);
 		// }
 	})
+
+	// windowCheck() => {
+	// 	if (W <= 1024) {
+	// 		$('options-image')
+	// 	}
+	// }
 
 
 	$scope.register = () => {
