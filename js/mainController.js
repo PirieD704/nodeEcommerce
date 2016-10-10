@@ -61,9 +61,9 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			.then(function successCallback(response){
 				// response.data.xxxxx = whatever res.json was in express.
 				if(response.data.failure == 'badToken'){
-					$location.path = '/login' //Goodbye
+					$location.path('/login') //Goodbye
 				}else if(response.data.failure == 'noToken'){
-					$location.path = '/login' //No token. Goodbye
+					$location.path('/login') //No token. Goodbye
 				}else{
 					//the token is good. Response.data will have their stuff in it.
 					$scope.userdata = response.data
