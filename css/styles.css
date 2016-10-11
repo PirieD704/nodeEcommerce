@@ -208,28 +208,29 @@ body .navbar .navbar-brand {
 }
 /* line 32, ../compass/sass/styles.sass */
 body .navbar .navbar-brand img {
-  width: 70%;
-  height: 30px;
+  width: 94%;
+  height: 48px;
+  margin-top: -14px;
 }
-/* line 35, ../compass/sass/styles.sass */
+/* line 36, ../compass/sass/styles.sass */
 body .lower-nav {
   text-align: center;
 }
-/* line 39, ../compass/sass/styles.sass */
+/* line 40, ../compass/sass/styles.sass */
 body .nav-tabs li {
   float: none;
   display: inline-block;
 }
-/* line 43, ../compass/sass/styles.sass */
+/* line 44, ../compass/sass/styles.sass */
 body .login-container {
   width: 100%;
 }
-/* line 46, ../compass/sass/styles.sass */
+/* line 47, ../compass/sass/styles.sass */
 body .register-container {
   width: 100%;
 }
 
-/* line 50, ../compass/sass/styles.sass */
+/* line 51, ../compass/sass/styles.sass */
 #welcome {
   text-align: right;
   vertical-align: center;
@@ -238,11 +239,11 @@ body .register-container {
   margin-top: 15px;
 }
 
-/* line 59, ../compass/sass/styles.sass */
+/* line 60, ../compass/sass/styles.sass */
 footer .text-center {
   margin-top: 100px;
 }
-/* line 61, ../compass/sass/styles.sass */
+/* line 62, ../compass/sass/styles.sass */
 footer a {
   padding: 10px;
 }
