@@ -61,9 +61,11 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			.then(function successCallback(response){
 				// response.data.xxxxx = whatever res.json was in express.
 				if(response.data.failure == 'badToken'){
-					$location.path('/login') //Goodbye
+					$location.path('/') //Goodbye
+					$('#welcome-text').text("Please Login or Register")
 				}else if(response.data.failure == 'noToken'){
-					$location.path('/login') //No token. Goodbye
+					$('#welcome-text').text("Please Login or Register")
+					$location.path('/') //No token. Goodbye
 				}else{
 					//the token is good. Response.data will have their stuff in it.
 					$scope.userdata = response.data
@@ -95,6 +97,15 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			console.log(response.data);
 		})
 	}
+
+	$scope.logout = () => {
+			$cookies.remove('token');
+			$cookies.remove('username');
+			$('#welcome-text').text('Please sign in')
+			$location.path('/');
+			console.log($cookies.get('token'));
+			console.log($cookies.get('username'));
+	};
 
 	// This submits the user selection of their shoes
 	$scope.options = () => {
