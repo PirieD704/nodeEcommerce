@@ -15,7 +15,7 @@ Built using:
 ###Functionality and Processes
 
 Key files and folders that will be referenced through this readme:
-* [index.js](https://github.com/PirieD704/nodeEcommerce/blob/master/back-end/routes/index.js) houses most of the back-end goodstuff.
+* [index.js](https://github.com/PirieD704/nodeEcommerce/blob/master/back-end/routes/index.js) houses most of the back-end good stuff.
 * [mainController.js](https://github.com/PirieD704/nodeEcommerce/blob/master/js/mainController.js) the angular controller with most of the functional javascript
 * [views](https://github.com/PirieD704/nodeEcommerce/tree/master/views) the views folder from our frontend that hold most of the html
 
