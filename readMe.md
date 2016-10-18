@@ -13,6 +13,13 @@ Built using:
 * bcrypt
 
 ###Functionality and Processes
+
+Key files and folders that will be referenced through this readme:
+* [index.js](https://github.com/PirieD704/nodeEcommerce/blob/master/back-end/routes/index.js) houses most of the back-end goodstuff.
+* [mainController.js](https://github.com/PirieD704/nodeEcommerce/blob/master/js/mainController.js) the angular controller with most of the functional javascript
+* [views](https://github.com/PirieD704/nodeEcommerce/tree/master/views) the views folder from our frontend that hold most of the html
+
+
 This site is a single page application that utilizes angular.js to rotate through four separate views which make up the various stages of the shopping process.  There are two modals that are used for sign up and login which are built with bootstrap and carry separate html files as well.  The app requires just one controller with two dependencies: 
 * ngRoute
 * ngCookies
@@ -73,7 +80,7 @@ Four functions are used to handle the processes of login/logout and register on 
 		});
 	};
 ```
-Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.  Next we have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if we get a successful response back from the server, 
+Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.  Next we have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if we get a successful response back from the server, we  
 
 
 
