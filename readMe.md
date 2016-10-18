@@ -8,8 +8,9 @@ Built using:
 * Bootstrap
 * Node.JS
 * Express.JS
-* MongoDB
+* MongoDB and Mongoose
 * Stripe
+* bcrypt
 
 ###Functionality and Processes
 This site is a single page application that utilizes angular.js to rotate through four separate views which make up the various stages of the shopping process.  There are two modals that are used for sign up and login which are built with bootstrap and carry separate html files as well.  The app requires just one controller with two dependencies: 
@@ -43,5 +44,39 @@ the main page has some style to it but still needs a better introduction to what
 		font-size: 24px
 		padding-bottom: 20px
 ```
+####Login/Logout and Register
+Four functions are used to handle the processes of login/logout and register on the front-end in angular.  There are two post requests for the server side, one for login, and one for addAccount.  There's also is also a get request for getUserData tied to checking the user's token to see of they have a valid session stored.
+
+```javascript
+	$scope.register = () => {
+		// if($scope.password != $scope.password2){
+		// 	console.log()
+		// }
+		$http.post(apiPath + '/addAccount', {
+			username: $scope.username,
+			password: $scope.password,
+			password2: $scope.password2,
+			email: $scope.email
+		}).then(function successCallback(response){
+			// console.log(response)
+			if(response.data.message == "added"){
+				$cookies.put('token', response.data.token) //Will be used for validation
+				$cookies.put('username', $scope.username) //Will be used strictly for info purposes
+				$location.path('/options');
+				$('#register').modal('hide') // this is the manual way to hide the modal for login as the bootstrap dismiss doesnt work
+			}else{
+				console.log(response.data.message)
+			}
+		}, function errorCallback(response){
+			console.log('fail');
+			console.log(response);
+		});
+	};
+```
+Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.  Next we have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if we get a successful response back from the server, 
+
+
+
+
 
 
