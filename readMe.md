@@ -24,7 +24,7 @@ The services utilized are:
 * location
 * cookies
 
-* the main page has some style to it but still needs a better introduction to what the site is about in the lower half of the page.  I put a greater emphasis on making the entire process complete, so for now this remains unfinished.  Some styling troubles were trying to have the main image featured without much content in the div itself and be reasonably dynamic to the screen size. It should not have been as hard as it was at the time but it turns out the top text box on the left needed padding comparable to the actual size of the picture.  This created the hard space needed for the image to live. then a position center and -250px on the top is what it took to get the image to sit properly. Here is the SASS for it.
+the main page has some style to it but still needs a better introduction to what the site is about in the lower half of the page.  I put a greater emphasis on making the entire process complete, so for now this remains unfinished.  Some styling troubles were trying to have the main image featured without much content in the div itself and be reasonably dynamic to the screen size. It should not have been as hard as it was at the time but it turns out the top text box on the left needed padding comparable to the actual size of the picture.  This created the hard space needed for the image to live. then a position center and -250px on the top is what it took to get the image to sit properly. Here is the SASS for it.
 
 ```SASS
 .section-1
