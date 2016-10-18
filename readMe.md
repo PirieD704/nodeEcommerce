@@ -80,7 +80,39 @@ Four functions are used to handle the processes of login/logout and register on 
 		});
 	};
 ```
-Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.  Next we have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if we get a successful response back from the server, we  
+Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth, password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.  Next we have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if we get a successful response back from the server, we take the token created in index.js and store it in cookies along with the username. Location.path takes us to the options page so that the customer can get to shopping.  
+
+```javascript
+router.post('/addAccount', (req, res, next) => {
+	
+	var token = randToken(32);
+	console.log(token);
+    var newUser = new User({
+        username: req.body.username,
+        password: bcrypt.hashSync(req.body.password),
+        email: req.body.email,
+        token: token,
+		// Add tokenExpDate
+    });
+
+
+    newUser.save((error, documentAdded) => {
+    	if(error){
+    		res.json({
+    			message: error    		
+    		})
+    	}else{
+    		res.json({
+        		message: "added",
+        		token: token
+    		});
+    	}
+    });
+
+});
+```
+This is the the router post that occurs when the user submits a register form.  
+
 
 
 
