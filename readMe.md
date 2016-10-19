@@ -218,9 +218,87 @@ The sizes are populated in the dropdown using ng-options via this line of html
 	<option label="{size}">{{size}}</option>
 </select>
 ```
+This is all leads to our conditional function in angular based off of which boolean is currently selected:
+```javascript
+	$scope.options = () => {
+		console.log($cookies.get('token'))
+		console.log("this did work")
+		if($scope.hoverEdit1){
+			console.log("hover1")
+			$http.post(apiPath + '/options', {
+				token: $cookies.get('token'),
+				shoeSelection: 'MARK MCNAIRY KZK X ADIDAS HOOK SHOT 84-LAB',
+				shoeSize: $scope.user_shoe_size,
+				price: '110'
+			}).then(function successCallback(response){
+				console.log(response.data);
+				if(response.data.message == "submitted"){
+					$location.path('/delivery');
+				}
+			})
+		}else if($scope.hoverEdit2){
+			console.log("hover2")
+			$http.post(apiPath + '/options', {
+				token: $cookies.get('token'),
+				shoeSelection: '2015 NEWEST NIKE AIR MAX LUNAR90 FLYKNIT',
+				shoeSize: $scope.user_shoe_size,
+				price: '94'
+			}).then(function successCallback(response){
+				console.log(response.data);
+				if(response.data.message == "submitted"){
+					$location.path('/delivery');
+				}
+			})
+		}else if($scope.hoverEdit3){
+			console.log("hover3")
+			$http.post(apiPath + '/options', {
+				token: $cookies.get('token'),
+				shoeSelection: 'VANS ACID DENIM OLD SKOOL',
+				shoeSize: $scope.user_shoe_size,
+				price: '65'
+			}).then(function successCallback(response){
+				console.log(response.data);
+				if(response.data.message == "submitted"){
+					$location.path('/delivery');
+				}
+			})
+		}
+	}
+```
+there is probably a pretty way to do this that is a little more dynamic in pulling all the html from the currently selected text with the corresponding boolean value, so that may be in the plans for a future revision, but this is an effective, not too cumbersome solution seen here in coding in the data for the properties in the javascript itself.  You can note that the boolean states of the hoveredits determine what is sent back to the server.
 
+#####Sidebar: MongoDB and Mongoose Information
+This is probably a time to go over the schema as I have layed it out in mongoose.  For anyone unfamiliar with Mongoose,  MongoDB(our database for this project) is a NoSQL BD and therefore carries no schemas(blueprint if you will) for the data that is being stored in it.  Mongoose allows us to define a Schema in how our JSON will be structured to make for easy access and inerpretation of the data in future pages(namely the payments page).  Here is the account.js file:
+```javascript
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
+var userSchema = new Schema({
+	username: {type: String, required: true},
+	password: {type: String, required: true},
+	email: {type: String, required: true},
+	token: String,
+	tokenExpDate: Date,
+	order: [{
+		"shoeSelection": String,
+		"shoeSize": String,
+		"price": String
+	}],
+	shipping: [{
+		"fullName": String,
+		"address1": String,
+		"cityShipping": String,
+		"stateShipping": String,
+		"zip": String
+	}]
+})
 
+module.exports = mongoose.model('User', userSchema);
+```
+To use what we had just talked about in creating our order information, user has a property order that contains an array with currently only one object which, in turn, has three properties of it's own.  The reason for the object within the array is the easy allowance of multiple future orders that would all be retrievable from this one user property order.  The same logic is applied to shipping in case multiple shipping addresses wanted.  It should be noted that the front-end is does not provide the options for multiple shoe selections at once or even multiple pairs for that matter, but I felt it was import to go ahead and plan for it on this side to make it a little easier in any future revisions.
+#####End Sidebar
+
+ 
 
 
 
