@@ -12,6 +12,9 @@ Built using:
 * Stripe
 * bcrypt
 
+Here is a link to a live version of the project if you would like to explore it:
+[Fresh Kicks](http://davidapirie.com/fresh-kicks/#/)
+
 ##Functionality and Processes
 
 Key files and folders that will be referenced through this readme:
