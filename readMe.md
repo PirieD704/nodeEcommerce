@@ -12,7 +12,7 @@ Built using:
 * Stripe
 * bcrypt
 
-###Functionality and Processes
+##Functionality and Processes
 
 Key files and folders that will be referenced through this readme:
 * [index.js](https://github.com/PirieD704/nodeEcommerce/blob/master/back-end/routes/index.js) houses most of the back-end good stuff.
@@ -51,7 +51,7 @@ the main page has some style to it but still needs a better introduction to what
 		font-size: 24px
 		padding-bottom: 20px
 ```
-####Login/Logout and Register
+###Login/Logout and Register
 Four functions are used to handle the processes of login/logout and register on the front-end in angular.  There are two post requests for the server side, one for login, and one for addAccount.  There's also is also a get request for getUserData tied to checking the user's token to see of they have a valid session stored.
 
 ```javascript
@@ -163,7 +163,7 @@ function checkToken(){
 }
 ```
 
-####Shopping Page
+###Shopping Page
 if you would like to view the html for the shopping page you can click here to see it in its entirety
 [options.html](https://github.com/PirieD704/nodeEcommerce/blob/master/views/options.html)
 the shopping page, I feel, has some neat features to it by making use of transition and hover as well as show-hide. The shopping experience is based off of hover.  I will start by saying that this is not mobile friendly at all and that a (probably mostly bootstrap) version of the page will have to be built in and hidden on larger screen sizes.  For future projects I started to design sites from mobile first to desktop and this site is most of the reason for that.
@@ -267,7 +267,7 @@ This is all leads to our conditional function in angular based off of which bool
 ```
 there is probably a pretty way to do this that is a little more dynamic in pulling all the html from the currently selected text with the corresponding boolean value, so that may be in the plans for a future revision, but this is an effective, not too cumbersome solution seen here in coding in the data for the properties in the javascript itself.  You can note that the boolean states of the hoveredits determine what is sent back to the server.
 
-#####Sidebar: MongoDB and Mongoose Information
+####Sidebar: MongoDB and Mongoose Information
 This is probably a time to go over the schema as I have layed it out in mongoose.  For anyone unfamiliar with Mongoose,  MongoDB(our database for this project) is a NoSQL BD and therefore carries no schemas(blueprint if you will) for the data that is being stored in it.  Mongoose allows us to define a Schema in how our JSON will be structured to make for easy access and inerpretation of the data in future pages(namely the payments page).  Here is the account.js file:
 ```javascript
 var mongoose = require('mongoose');
@@ -296,9 +296,9 @@ var userSchema = new Schema({
 module.exports = mongoose.model('User', userSchema);
 ```
 To use what we had just talked about in creating our order information, user has a property order that contains an array with currently only one object which, in turn, has three properties of it's own.  The reason for the object within the array is the easy allowance of multiple future orders that would all be retrievable from this one user property order.  The same logic is applied to shipping in case multiple shipping addresses wanted.  It should be noted that the front-end is does not provide the options for multiple shoe selections at once or even multiple pairs for that matter, but I felt it was import to go ahead and plan for it on this side to make it a little easier in any future revisions.
-#####End Sidebar
+####End Sidebar
 
- 
+
 
 
 
