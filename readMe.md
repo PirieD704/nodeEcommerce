@@ -268,7 +268,7 @@ This is all leads to our conditional function in angular based off of which bool
 there is probably a pretty way to do this that is a little more dynamic in pulling all the html from the currently selected text with the corresponding boolean value, so that may be in the plans for a future revision, but this is an effective, not too cumbersome solution seen here in coding in the data for the properties in the javascript itself.  You can note that the boolean states of the hoveredits determine what is sent back to the server.
 
 ####Sidebar: MongoDB and Mongoose Information
-This is probably a time to go over the schema as I have layed it out in mongoose.  For anyone unfamiliar with Mongoose,  MongoDB(our database for this project) is a NoSQL BD and therefore carries no schemas(blueprint if you will) for the data that is being stored in it.  Mongoose allows us to define a Schema in how our JSON will be structured to make for easy access and inerpretation of the data in future pages(namely the payments page).  Here is the account.js file:
+This is probably a good time to go over the schema as I have layed it out in mongoose.  For anyone unfamiliar with Mongoose,  MongoDB(our database for this project) is a NoSQL BD and therefore carries no schemas(blueprint if you will) for the data that is being stored in it.  Mongoose allows us to define a Schema in how our JSON will be structured to make for easy access and inerpretation of the data in future pages(namely the payments page).  Here is the account.js file:
 ```javascript
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -298,6 +298,7 @@ module.exports = mongoose.model('User', userSchema);
 To use what we had just talked about in creating our order information, user has a property order that contains an array with currently only one object which, in turn, has three properties of it's own.  The reason for the object within the array is the easy allowance of multiple future orders that would all be retrievable from this one user property order.  The same logic is applied to shipping in case multiple shipping addresses wanted.  It should be noted that the front-end is does not provide the options for multiple shoe selections at once or even multiple pairs for that matter, but I felt it was import to go ahead and plan for it on this side to make it a little easier in any future revisions.
 ####End Sidebar
 
+To be continued...
 
 
 
