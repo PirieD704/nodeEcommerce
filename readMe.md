@@ -80,7 +80,11 @@ Four functions are used to handle the processes of login/logout and register on 
 		});
 	};
 ```
-Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth, password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.  Next we have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if we get a successful response back from the server, we take the token created in index.js and store it in cookies along with the username. Location.path takes us to the options page so that the customer can get to shopping.  
+Here in the register function you can see that four properties are sent to the server in JSON from user input: username, password, password2, email.  In truth, password2 should not be passed back to the server but should be checked before post request is made to confirm that the correct password was indeed entered. This is on the docket for future impelementation.
+
+One small obstacle is that was a quirk of using angular and bootstrap together is that my modal would not close via the typical attribute given by bootstrap "data-dismiss".  To fix this, I used a little JQuery to target the modal and hide it manually in the event of a successful callback.
+
+Next I have a .then method that handles our promise.  This takes two parameters, the first being our success function, and the second being our error function.  if I get a successful response back from the server, we take the token created in index.js and store it in cookies along with the username. Location.path takes us to the options page so that the customer can get to shopping.  
 
 ```javascript
 router.post('/addAccount', (req, res, next) => {
@@ -111,7 +115,7 @@ router.post('/addAccount', (req, res, next) => {
 
 });
 ```
-This is the the router post that occurs when the user submits a register form.  We use bcrypt to encrypt the password for storage purposes in the event that the database is breached.  this bcrypt is used again during login to compare the encrypted password so at no point does the user's password get stored, and can therefore not be seen by anyone viewing the database or those who shouldn't be viewing the database.
+This is the the router post that occurs when the user submits a register form.  I use bcrypt to encrypt the password for storage purposes in the event that the database is breached.  this bcrypt is used again during login to compare the encrypted password so at no point does the user's password get stored, and can therefore not be seen by anyone viewing the database or those who shouldn't be viewing the database.
 ```javascript
 var loginResult = bcrypt.compareSync(req.body.password, document.password);
 if(loginResult){
@@ -128,7 +132,94 @@ if(loginResult){
 	})
 }
 ```
-All the JSON that is being returned and recieved has proper error-handling for testing and debugging purposes.  
+All the JSON that is being returned and recieved has proper error-handling for testing and debugging purposes.
+
+I also have a checktoken function that is set to run anytime angular makes a change by being called at the top of the controller. It valid to make sure the user has a valid token and compares it with the token stored in the database.  It checks to see if their token is up to date or if they have a token at all.  Future plans for this include setting up the code so that the user's token expires after 30 minutes of inactivity or so. Although i don't always agree with websites that do this, it could be a good exercise in learning how to implement it.  the checktoken function update a feild called welcome text which either greets the guest by username or asks them to please login or register.
+```javascript
+function checkToken(){
+	if(($cookies.get('token') != undefined)){
+		$http.get(apiPath + '/getUserData?token=' + $cookies.get('token'),{})
+		.then(function successCallback(response){
+			// response.data.xxxxx = whatever res.json was in express.
+			if(response.data.failure == 'badToken'){
+				$location.path('/') //Goodbye
+				$('#welcome-text').text("Please Login or Register")
+			}else if(response.data.failure == 'noToken'){
+				$('#welcome-text').text("Please Login or Register")
+				$location.path('/') //No token. Goodbye
+			}else{
+				//the token is good. Response.data will have their stuff in it.
+				$scope.userdata = response.data
+				console.log($scope.userdata)
+				if($scope.userdata.document.username != undefined){
+					$('#welcome-text').text("Hi " + $scope.userdata.document.username)
+    				console.log($scope.userdata.document.username);
+    			}
+			}
+		}, function errorCallback(response){
+			// console.log(response)
+		});
+	}
+}
+```
+
+####Shopping Page
+if you would like to view the html for the shopping page you can click here to see it in its entirety
+[options.html](https://github.com/PirieD704/nodeEcommerce/blob/master/views/options.html)
+the shopping page, I feel, has some neat features to it by making use of transition and hover as well as show-hide. The shopping experience is based off of hover.  I will start by saying that this is not mobile friendly at all and that a (probably mostly bootstrap) version of the page will have to be built in and hidden on larger screen sizes.  For future projects I started to design sites from mobile first to desktop and this site is most of the reason for that.
+
+The shoes expand when hovered on to be the most prominent feature on the page. The transition is at 0.8 seconds and the SASS for this goes as follows:
+```SASS
+	.feature-shoe-left:hover
+		height: 350px
+		width: 41%
+	.feature-shoe:hover
+		height: 450px
+		width: 39%
+	.center-shoe:hover
+		height: 350px
+		width: 53%
+	.ease
+		transition: all 0.8s ease-out
+	.feature-shoe-left
+		width: 23%
+		height: 200px
+	.feature-shoe
+		width: 23%
+		height: 250px
+	.center-shoe
+		width: 29%
+		height: 220px
+```
+There was a little trial and error to find the right percentages for each shoe so that they did not appear warped on the page.  This also meant that each shoe required its own class defining the specific dimensions.
+
+The best feature, in my humble opinion, about the this page is that the hover feature is also tied to populating the corresponding information to each shoe and that data (including the shoe size selection) can be passed back to Node and stored in mongo.  This is all based off of corresponding boolean values for each pair of shoes. A function runs for each shoe that is hovered over, affecting all three boolean values (making the hovered one True and the other two False):
+```javascript
+	$scope.myHoverEdit1 = function(){
+		$scope.hoverEdit1 = true;
+		$scope.hoverEdit2 = false;
+		$scope.hoverEdit3 = false;
+	}
+	$scope.myHoverEdit2 = function(){
+		$scope.hoverEdit1 = false;
+		$scope.hoverEdit2 = true;
+		$scope.hoverEdit3 = false;
+	}
+	$scope.myHoverEdit3 = function(){
+		$scope.hoverEdit1 = false;
+		$scope.hoverEdit2 = false;
+		$scope.hoverEdit3 = true;
+	}
+```
+The sizes are populated in the dropdown using ng-options via this line of html
+```HTML
+<select ng-model="user_shoe_size" ng-options="size.size for size in sizes" class="btn btn-default dropdown-toggle">
+	<option value="?" selected="selected"></option>
+	<option label="{size}">{{size}}</option>
+</select>
+```
+
+
 
 
 
