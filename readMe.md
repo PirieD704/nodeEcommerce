@@ -111,7 +111,24 @@ router.post('/addAccount', (req, res, next) => {
 
 });
 ```
-This is the the router post that occurs when the user submits a register form.  
+This is the the router post that occurs when the user submits a register form.  We use bcrypt to encrypt the password for storage purposes in the event that the database is breached.  this bcrypt is used again during login to compare the encrypted password so at no point does the user's password get stored, and can therefore not be seen by anyone viewing the database or those who shouldn't be viewing the database.
+```javascript
+var loginResult = bcrypt.compareSync(req.body.password, document.password);
+if(loginResult){
+	//The password is correct. Log them in.
+	res.json({
+		success: "userFound",
+		token: document.token,
+		username: document.username
+	});
+}else{
+	//hashes did not match or the doc wasn't found. Goodbye
+	res.json({
+		failure: "badPass"
+	})
+}
+```
+All the JSON that is being returned and recieved has proper error-handling for testing and debugging purposes.  
 
 
 
