@@ -52,7 +52,6 @@ ecommerceApp.controller('ecommerceController', function($scope, $rootScope, $htt
 			console.log('fail');
 			console.log(response);
 		});
-
 	};
 
 	function checkToken(){
